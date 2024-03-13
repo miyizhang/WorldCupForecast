@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>比赛管理</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+        .matches-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 70%;
+            max-width: 800px;
+            margin-bottom: 20px;
+        }
+        .match-item {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .match-item:last-child {
+            border-bottom: none;
+        }
+        .match-item span {
+            flex-grow: 1;
+            margin-right: 10px;
+        }
+        .match-item a, .match-item button {
+            width: 80px; /* Set the same width for both buttons */
+            height: 30px; /* Set the same height for both buttons */
+            background-color: #4CAF50; /* Button background color */
+            color: white; /* Button text color */
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            display: inline-block; /* Ensure the buttons respect width and height */
+            text-align: center; /* Center the text inside the button */
+            line-height: 30px; /* Vertically center the text inside the button */
+            font-size: 14px; /* Set font size for visibility */
+            margin: 0 5px; /* Add some space between buttons */
+        }
+        .match-item a:hover, .match-item button:hover {
+            background-color: #45a049;
+        }
+        a.add-new-match {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.2s ease;
+        }
+        a.add-new-match:hover {
+            background-color: #0069d9;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="matches-container">
+    <h2>比赛管理</h2>
+    {% for match in data %}
+    <div class="match-item">
+        <span>日期：{{ match.match_date }}  时间：{{ match.match_time }}- {{ match.team_a }} vs {{ match.team_b }}</span>
+        <a href="{% url 'custom_admin:edit_match_info' match.id %}">编辑</a>
+        <form method="post" action="{% url 'custom_admin:delete_match_info' match.id %}" style="display: inline;">
+            {% csrf_token %}
+            <button type="submit">删除</button>
+        </form>
+    </div>
+    {% endfor %}
+    <a href="{% url 'custom_admin:update_match_info' %}" class="add-new-match">添加新比赛</a>
+</div>
+
+</body>
+</html>

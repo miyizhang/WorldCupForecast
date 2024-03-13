@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册</title>
+    <style>
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin: auto; /* Center the container */
+        }
+        h2 {
+            color: #5cb85c;
+        }
+        input[type=text], input[type=password], button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button:hover {
+            background-color: #4cae4c;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>注册</h2>
+    <form method="post">
+        {% csrf_token %}
+        {% for field in form %}
+            <input type="{{ field.field.widget.input_type }}" name="{{ field.name }}" placeholder="{{ field.label }}" {% if field.field.required %}required{% endif %}>
+        {% endfor %}
+        <button type="submit">注册</button>
+    </form>
+</div>
+
+</body>
+</html>
+
+{% endblock %}

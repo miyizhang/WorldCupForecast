@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin: auto; /* Center the form */
+            margin-top: 50px; /* Add some margin to the top */
+        }
+        input[type=text], input[type=password], button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            border: none;
+            background-color: #5cb85c;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #4cae4c;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        {% if request.user.is_authenticated %}
+            <p>你好, {{ request.user.username }}</p>
+            <form method='post' action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit">登出</button>
+            </form>
+        {% else %}
+            <form method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">登录</button>
+            </form>
+            <button onclick="location.href='{% url 'register' %}'" type="button">注册</button>
+        {% endif %}
+    </div>
+
+</body>
+</html>
+
+{% endblock %}

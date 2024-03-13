@@ -1,0 +1,11 @@
+{% extends "admin/base_site.html" %}
+
+{% block extrahead %}
+    <!-- Your custom CSS or JavaScript here -->
+{% endblock %}
+
+{% block content %}
+    <h1>Custom Admin Links</h1>
+    <p>This is a custom admin page.</p>
+    <a href="{% url 'your_custom_view_url_name' %}">Go to Custom View</a>
+{% endblock %}

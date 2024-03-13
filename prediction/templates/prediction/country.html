@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+<style>
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 10px;
+        padding: 10px;
+    }
+    .gallery img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+    @media (max-width: 600px) {
+        .gallery {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="gallery">
+        <img src="{% static 'photo/A1.jpg' %}" alt="Image description" />
+        <img src="{% static 'photo/A2.jpg' %}" alt="Image description" />
+        <img src="{% static 'photo/A3.jpg' %}" alt="Image description" />
+        <img src="{% static 'photo/A4.jpg' %}" alt="Image description" />
+        <img src="{% static 'photo/B1.jpg' %}" alt="Image description" />
+        <img src="{% static 'photo/B2.jpg' %}" alt="Image description" />
+        <img src="{% static 'photo/B3.jpg' %}" alt="Image description" />
+        <img src="{% static 'photo/B4.jpg' %}" alt="Image description" />
+        <img src="{% static 'photo/C1.jpg' %}" alt="Image description" />
+        <img src="{% static 'photo/C2.jpg' %}" alt="Image description" />
+        <img src="{% static 'photo/C3.jpg' %}" alt="Image description" />
+        <img src="{% static 'photo/C4.jpg' %}" alt="Image description" />
+        <img src="{% static 'photo/D1.jpg' %}" alt="Image description" />
+        <img src="{% static 'photo/D2.jpg' %}" alt="Image description" />
+        <img src="{% static 'photo/D3.jpg' %}" alt="Image description" />
+        <img src="{% static 'photo/D4.jpg' %}" alt="Image description" />
+        <img src="{% static 'photo/E1.jpg' %}" alt="Image description" />
+        <img src="{% static 'photo/E2.jpg' %}" alt="Image description" />
+        <img src="{% static 'photo/E3.jpg' %}" alt="Image description" />
+        <img src="{% static 'photo/E4.jpg' %}" alt="Image description" />
+        <img src="{% static 'photo/F1.jpg' %}" alt="Image description" />
+        <img src="{% static 'photo/F2.jpg' %}" alt="Image description" />
+        <img src="{% static 'photo/F3.jpg' %}" alt="Image description" />
+        <img src="{% static 'photo/F4.jpg' %}" alt="Image description" />
+        <img src="{% static 'photo/G1.jpg' %}" alt="Image description" />
+        <img src="{% static 'photo/G2.jpg' %}" alt="Image description" />
+        <img src="{% static 'photo/G3.jpg' %}" alt="Image description" />
+        <img src="{% static 'photo/G4.jpg' %}" alt="Image description" />
+        <img src="{% static 'photo/H1.jpg' %}" alt="Image description" />
+        <img src="{% static 'photo/H2.jpg' %}" alt="Image description" />
+        <img src="{% static 'photo/H3.jpg' %}" alt="Image description" />
+        <img src="{% static 'photo/H4.jpg' %}" alt="Image description" />
+    </div>
+</body>
+</html>
+
+{% endblock %}

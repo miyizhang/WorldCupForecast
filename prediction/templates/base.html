@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            {#justify-content: center;#}
+            {#align-items: center;#}
+            height: 100vh;
+            flex-direction: column;
+        }
+        .top-bar {
+            background-color: #333;
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .top-bar a{
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            border: 1px solid white;
+            border-radius: 4px;
+        }
+        .top-bar button{
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            border: 1px solid white;
+            border-radius: 4px;
+        }
+        .top-bar a:hover, .top-bar button:hover{
+            background-color: white;
+            color: #333;
+        }
+        .content {
+            padding: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div>
+            {% if user.is_authenticated %}
+                        <span>你好, {{ request.user.username }}</span>
+            <form method='post' action="/logout/", style="display: inline">
+{#            <input type="hidden" name="csrfmiddlewaretoken" value="8JiKOpKIATEOt2YxgyHJgfoNXyNP7gHvzKH8JrMmzjo8dAs6lri5Qel7pgtlycKA">#}
+                            {% csrf_token %}
+                <button type="submit">登出</button>
+            </form>
+            {% else %}
+                        <span>登录或注册以使用完整功能</span>
+                <a href="{% url 'login' %}">登录</a>
+                <a href="{% url 'register' %}">注册</a>
+            {% endif %}
+             <a href="{% url 'home' %}">主页</a>
+        </div>
+    </div>
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

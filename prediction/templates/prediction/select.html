@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Football Match Selector</title>
+<script src="../../static/js/select.js"></script> <!-- Link to your JavaScript file -->
+<style>
+        .team-info {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        .team-info h4 {
+            margin: 0 0 10px 0;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #eee;
+            font-size: 18px;
+            color: #333;
+        }
+        .team-info p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #666;
+        }
+        .team-info span {
+            font-weight: bold;
+            color: #333;
+        }
+    .form-container {
+        background-color: white;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        margin: auto;
+    }
+    input[type=text], input[type=submit] {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+    input[type=submit] {
+        border: none;
+        background-color: #5cb85c;
+        color: white;
+        cursor: pointer;
+    }
+    input[type=submit]:hover {
+        background-color: #4cae4c;
+    }
+    .or-divider {
+        text-align: center;
+        margin: 20px 0;
+    }
+</style>
+</head>
+<body>
+
+<div class="form-container">
+    <h3>选择比赛</h3>
+    <form id="matchSelector" action="{% url 'predict' %}" method="POST">
+        <div id="groupsContainer">
+            {% csrf_token %}
+            <!-- 下拉菜单将在这里动态加载 -->
+        </div>
+        <!-- 添加一个容器用来显示球队信息 -->
+        <div class="team-info-container" id="teamInfoContainer"></div>
+        <input type="submit" value="提交">
+    </form>
+</div>
+
+
+<div class="or-divider">
+    <span>或者</span>
+</div>
+
+<div class="form-container">
+    <h3>输入比赛队伍</h3>
+    <form id="matchInput" action="{% url 'predict' %}" method="POST">
+        {% csrf_token %}
+        <input type="text" id="homeTeam" name="homeTeam" placeholder="主队">
+        <input type="text" id="awayTeam" name="awayTeam" placeholder="客队">
+        <input type="submit" value="提交">
+    </form>
+</div>
+
+</body>
+</html>
+
+{% endblock %}

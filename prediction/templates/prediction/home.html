@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Match Selector</title>
+    <style>
+        {#body{#}
+        {#    font-family: Arial, sans-serif;#}
+        {#    background-color: #f4f4f4;#}
+        {#    margin: 0;#}
+        {#    padding: 0;#}
+        {#    display: flex;#}
+        {#    justify-content: center;#}
+        {#    align-items: center;#}
+        {#    height: 100vh;#}
+        {#    flex-direction: column;#}
+        {#}#}
+        .form-container, .match-info {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 600px;
+            text-align: center;
+            margin: auto;
+        }
+        input[type=text], input[type=submit] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type=submit] {
+            border: none;
+            background-color: #5cb85c;
+            color: white;
+            cursor: pointer;
+        }
+        input[type=submit]:hover {
+            background-color: #4cae4c;
+        }
+        .match-info {
+            text-align: center;
+        }
+        .match-info h2 {
+            color: #333;
+        }
+        .match-info p {
+            color: #555;
+        }
+        .match-info table{
+            width: 100%;
+        }
+        .match-info th{
+            width: 22%;
+            text-align: left;
+        }
+        .match-info tr{
+            width: 20%;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <form id="matchInput" action="{% url 'select' %}">
+        <input type="submit" value="比赛预测">
+    </form>
+</div>
+<div class="form-container">
+    <form id="matchInput" action="{% url 'country_display' %}">
+        <input type="submit" value="比赛队伍">
+    </form>
+</div>
+<div class="match-info">
+    <h2>比赛信息</h2>
+<table>
+    <tr>
+        <th>日期</th>
+        <th>时间</th>
+        <th>主队</th>
+        <th>客队</th>
+        <th>结果</th>
+    </tr>
+    {% for row in data %}
+    <tr>
+        <td>{{ row.match_date }}</td>
+        <td>{{ row.match_time }}</td>
+        <td>{{ row.team_a }}</td>
+        <td>{{ row.team_b }}</td>
+        <td>{{ row.result }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</div>
+
+</body>
+</html>
+
+{% endblock %}

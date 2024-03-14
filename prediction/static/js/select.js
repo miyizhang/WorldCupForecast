@@ -284,7 +284,8 @@ var matches = [
       option.textContent = match[3] + ' vs ' + match[4]; // 显示中文
       matchSelect.appendChild(option);
     });
-    groups[selectedGroup].push(matches);
+
+    matchSelect.dispatchEvent(new Event('change'));
   });
 
       matchSelect.addEventListener('change', function() {

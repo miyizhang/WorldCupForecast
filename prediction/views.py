@@ -174,11 +174,6 @@ def predict_view(request):
 
     recent_match = get_recent_matches(home_team, away_team)
 
-    for match in recent_match:
-        # 检查分数是否为 NaN 或 None 并转换为整数
-        match['home_score'] = int(match['home_score']) if pd.notnull(match['home_score']) else '数据不可用'
-        match['away_score'] = int(match['away_score']) if pd.notnull(match['away_score']) else '数据不可用'
-
     context = {
         'winner': a + '(' + winner + ')',
         'winner_proba': winner_proba,

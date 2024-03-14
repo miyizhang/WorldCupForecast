@@ -1,19 +1,15 @@
-import pandas as pd
-
-# Load the CSV file
-matches_df = pd.read_csv('data/results.csv')
-matches_df = matches_df.iloc[:-48]
-
-matches_df["date"] = pd.to_datetime(matches_df["date"])
+from django.db import connection
 
 
 def get_recent_matches(home_team, away_team, number_of_matches=5):
-    filtered_matches = matches_df[((matches_df['home_team'] == home_team) & (matches_df['away_team'] == away_team)) |
-                                  ((matches_df['home_team'] == away_team) & (matches_df['away_team'] == home_team))]
-
-    sorted_matches = filtered_matches.sort_values(by='date', ascending=False)
-
-    recent_matches = sorted_matches.head(number_of_matches)
-
-    recent_matches_list = recent_matches.to_dict(orient='records')
+    with connection.cursor() as cursor:
+        query = '''
+        SELECT * FROM matchHistory
+        WHERE (home_team = %s AND away_team = %s) OR (home_team = %s AND away_team = %s)
+        ORDER BY date DESC
+        LIMIT %s
+        '''
+        cursor.execute(query, [home_team, away_team, away_team, home_team, number_of_matches])
+        columns = [col[0] for col in cursor.description]
+        recent_matches_list = [dict(zip(columns, row)) for row in cursor.fetchall()]
     return recent_matches_list

@@ -58,7 +58,7 @@
         <ul>
         {% for match in recent_match %}
             <li>
-                <strong>日期：</strong>{{ match.date|date}}<br>
+                <strong>日期：</strong>{{ match.date}}<br>
                 <strong>主队：</strong>{{ match.home_team }}，
                 <strong>客队：</strong>{{ match.away_team }}<br>
                 <strong>比分：</strong>{{ match.home_score }} - {{ match.away_score }}，

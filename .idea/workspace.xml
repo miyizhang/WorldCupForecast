@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="19eb8a75-d307-4a47-9189-743fefb57f5a" name="Changes" comment="Changes">
-      <change beforePath="$PROJECT_DIR$/worldcup/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/worldcup/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prediction/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/prediction/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -265,7 +266,7 @@
       <workItem from="1710396898234" duration="678000" />
       <workItem from="1710403877161" duration="877000" />
       <workItem from="1710497048790" duration="595000" />
-      <workItem from="1711269796830" duration="347000" />
+      <workItem from="1711269796830" duration="1055000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <option name="closed" value="true" />
@@ -291,7 +292,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711269852640</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Changes">
+      <option name="closed" value="true" />
+      <created>1711270154023</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1711270154023</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

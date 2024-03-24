@@ -165,22 +165,26 @@ def predict_view(request):
         home_team, away_team = selected_match.split(
             ' vs ') if ' vs ' in selected_match else ('', '')
 
-    winner, winner_proba = predict_match(home_team, away_team)
+    try:
+        winner, winner_proba = predict_match(home_team, away_team)
 
-    a = '平局'
+        a = '平局'
 
-    if winner != 'Draw':
-        a = country_name.get(winner, winner)
+        if winner != 'Draw':
+            a = country_name.get(winner, winner)
 
-    recent_match = get_recent_matches(home_team, away_team)
+        recent_match = get_recent_matches(home_team, away_team)
 
-    context = {
-        'winner': a + '(' + winner + ')',
-        'winner_proba': winner_proba,
-        'recent_match': recent_match
-    }
+        context = {
+            'winner': a + '(' + winner + ')',
+            'winner_proba': winner_proba,
+            'recent_match': recent_match
+        }
 
-    return render(request, 'prediction/predict.html', context)
+        return render(request, 'prediction/predict.html', context)
+
+    except Exception as ex:
+        return redirect('select')
 
 
 def country_display(request):

@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="19eb8a75-d307-4a47-9189-743fefb57f5a" name="Changes" comment="Changes">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/df495304-dd62-49df-8555-a90687542050.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/df495304-dd62-49df-8555-a90687542050.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/df495304-dd62-49df-8555-a90687542050/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/df495304-dd62-49df-8555-a90687542050/storage_v2/_src_/schema/main.uQUzAA.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prediction/recentMatch.py" beforeDir="false" afterPath="$PROJECT_DIR$/prediction/recentMatch.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prediction/static/js/select.js" beforeDir="false" afterPath="$PROJECT_DIR$/prediction/static/js/select.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prediction/templates/prediction/predict.html" beforeDir="false" afterPath="$PROJECT_DIR$/prediction/templates/prediction/predict.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prediction/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/prediction/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +77,7 @@
       <recent name="E:\WorldCup_Django\worldcup\prediction\templates" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.recentMatch">
+  <component name="RunManager" selected="Python.worldcup_train">
     <configuration name="homePage.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/worldcup/prediction/templates/homePage/homePage.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
@@ -210,9 +203,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.worldcup_train" />
         <item itemvalue="Python.recentMatch" />
         <item itemvalue="Python.Sqlite" />
-        <item itemvalue="Python.worldcup_train" />
         <item itemvalue="Python.test" />
       </list>
     </recent_temporary>
@@ -257,6 +250,9 @@
       <workItem from="1710312255978" duration="1090000" />
       <workItem from="1710384239388" duration="3454000" />
       <workItem from="1710391992306" duration="3707000" />
+      <workItem from="1710396898234" duration="678000" />
+      <workItem from="1710403877161" duration="877000" />
+      <workItem from="1710497048790" duration="595000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <option name="closed" value="true" />
@@ -266,7 +262,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710312666295</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Changes">
+      <option name="closed" value="true" />
+      <created>1710396945866</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1710396945866</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
